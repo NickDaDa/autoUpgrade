@@ -1,0 +1,39 @@
+
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx-a
+  namespace: default
+  labels:
+    app: nginx-test-a
+spec:
+  serviceName: svc-headless-test
+  volumeClaimTemplates:
+  - metadata:
+      name: dynamic-data-test-a
+    spec:
+      storageClassName: managed-premium
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx-a
+        image: nginx
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+        - name: dynamic-data-test-a
+          mountPath: /tmp/qqq

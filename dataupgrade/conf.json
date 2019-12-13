@@ -1,0 +1,17 @@
+{
+    "os" : "linux",
+    "encode" : "utf-8",
+    "workDir" : "/home/",
+    "versionPath" : "version/",
+    "latestVersion" : "latestVersion.txt",
+    "currentVersion" : "currentVersion.txt",
+    "logPath" : "log/",
+    "log" : "log.txt",
+    "resPath" : "result/",
+    "res" : "syncResult.txt",
+    "copySrc" : "copySrc/",
+    "copyDst" : "copyDst/",
+    "success-text" : "success",
+    "fail-text" : "fail",
+    "dateformat" : "YYYY-MM-DD HH:mm:ss"
+}
